@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyBuSFwxHByjAX1RJH5AlzjGkIGVPYSa_4TWBpFlnGo75IxU4A_oRjuwEAYl7oW0YBx/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzxxdjNFyOQN-tM11BY8ghNtRuQHn-FLeFMWunE2Ppubkuy3ojEqD7LToe9DHcR0i-O/exec";
 
 const absensi = {
   data: {
