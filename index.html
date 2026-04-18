@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Absensi Karyawan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .status {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .time-box {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 10px;
+      background: #f1f2f6;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .primary { background: #2ed573; color: white; }
+    .warning { background: #ffa502; color: white; }
+    .danger { background: #ff4757; color: white; }
+    .secondary { background: #1e90ff; color: white; }
+
+    button:disabled {
+      background: #ced6e0;
+      cursor: not-allowed;
+    }
+
+    .overtime-box {
+      margin-top: 15px;
+      padding: 10px;
+      background: #fff5e6;
+      border-radius: 10px;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Absensi Shift 1</h2>
+
+  <div class="status">
+    <h3 id="statusText">Loading...</h3>
+    <p id="liveClock"></p>
+  </div>
+
+  <div class="time-box">
+    <span>Clock In</span>
+    <span id="clockIn">--:--</span>
+  </div>
+
+  <div class="time-box">
+    <span>Break</span>
+    <span id="breakStart">--:--</span>
+  </div>
+
+  <div class="time-box">
+    <span>After Break</span>
+    <span id="breakEnd">--:--</span>
+  </div>
+
+  <div class="time-box">
+    <span>Clock Out</span>
+    <span id="clockOut">--:--</span>
+  </div>
+
+  <div class="overtime-box">
+    <div class="time-box">
+      <span>Lembur Mulai</span>
+      <span id="overtimeStart">--:--</span>
+    </div>
+    <div class="time-box">
+      <span>Total Lembur</span>
+      <span id="overtimeHours">0 jam</span>
+    </div>
+  </div>
+
+  <button id="btnIn" class="primary">Clock In</button>
+  <button id="btnBreak" class="secondary">Break</button>
+  <button id="btnAfterBreak" class="secondary">After Break</button>
+  <button id="btnOvertime" class="warning">Mulai Lembur</button>
+  <button id="btnOut" class="danger">Clock Out</button>
+</div>
+
+<script src="absensi.js"></script>
+
+</body>
+</html>
