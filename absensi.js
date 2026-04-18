@@ -1,4 +1,4 @@
-const API_URL = "PASTE_URL_APPS_SCRIPT_DISINI";
+const API_URL = "https://script.google.com/macros/s/AKfycbyBuSFwxHByjAX1RJH5AlzjGkIGVPYSa_4TWBpFlnGo75IxU4A_oRjuwEAYl7oW0YBx/exec";
 
 const absensi = {
   data: {
