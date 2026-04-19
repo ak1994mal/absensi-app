@@ -83,3 +83,26 @@ const faceApp = {
     alert("Selamat datang " + name);
   }
 };
+
+capturePhoto() {
+  const canvas = document.createElement('canvas');
+  canvas.width = this.video.videoWidth;
+  canvas.height = this.video.videoHeight;
+
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(this.video, 0, 0);
+
+  return canvas.toDataURL('image/jpeg');
+}
+
+async function getLocation() {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      pos => resolve({
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude
+      }),
+      err => reject(err)
+    );
+  });
+}
