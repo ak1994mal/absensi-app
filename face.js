@@ -128,3 +128,26 @@ isBlink(landmarks) {
 }
 
 blinkDetected: false,
+
+  async function registerFace(name, userId) {
+  const detection = await faceapi
+    .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
+    .withFaceLandmarks()
+    .withFaceDescriptor();
+
+  const descriptor = Array.from(detection.descriptor);
+
+  await fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "registerUser",
+      payload: {
+        userId,
+        name,
+        descriptor
+      }
+    })
+  });
+
+  alert("Wajah berhasil disimpan");
+}
