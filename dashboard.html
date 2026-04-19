@@ -1,0 +1,19 @@
+<h2>Dashboard Absensi</h2>
+<table border="1" id="table"></table>
+
+<script>
+const API_URL = "PASTE_URL";
+
+async function loadData() {
+  const res = await fetch(API_URL + '?action=all');
+  const json = await res.json();
+
+  const table = document.getElementById("table");
+
+  table.innerHTML = json.data.map(row =>
+    `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`
+  ).join('');
+}
+
+setInterval(loadData, 5000);
+</script>
