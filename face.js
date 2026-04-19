@@ -51,6 +51,17 @@ const faceApp = {
         .withFaceLandmarks()
         .withFaceDescriptors();
 
+      const detection = detections[0];
+if (!this.blinkDetected) {
+  if (this.isBlink(detection.landmarks)) {
+    this.blinkDetected = true;
+    document.getElementById("actionText").innerText = "Wajah valid ✔";
+  } else {
+    document.getElementById("actionText").innerText = "Kedipkan mata...";
+    return;
+  }
+}
+
       if (!detections.length) return;
 
       const bestMatch = this.matcher.findBestMatch(detections[0].descriptor);
@@ -106,3 +117,14 @@ async function getLocation() {
     );
   });
 }
+
+isBlink(landmarks) {
+  const eye = landmarks.getLeftEye();
+
+  const vertical = Math.abs(eye[1].y - eye[5].y);
+  const horizontal = Math.abs(eye[0].x - eye[3].x);
+
+  return (vertical / horizontal) < 0.2;
+}
+
+blinkDetected: false,
