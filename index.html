@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Absensi Karyawan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
 
   <style>
     body {
@@ -75,13 +76,17 @@
 <body>
 
 <div class="container">
-  <h2>Absensi Shift 1</h2>
+  <h2>Absensi J&T</h2>
 
   <div class="status">
     <h3 id="statusText">Loading...</h3>
     <p id="liveClock"></p>
   </div>
 
+  <div style="margin-top:15px;">
+  <video id="video" width="100%" autoplay muted></video>
+  </div>
+  
   <div class="time-box">
     <span>Clock In</span>
     <span id="clockIn">--:--</span>
